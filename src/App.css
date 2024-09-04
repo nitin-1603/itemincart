@@ -1,0 +1,103 @@
+/* Base styles for the card */
+.cardBorder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: calc(100% / 2 - 16px);
+  /* Default to 2 cards per row */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(0.99);
+}
+
+.card-image{
+  width: 10rem;
+  height: 10rem;
+}
+
+/* .card img {
+  width: 100%;
+  height: auto;
+} */
+
+.card-content {
+  padding: 16px;
+  margin: 1rem 0rem;
+}
+
+.phone-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.specs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.specs li {
+  margin-bottom: 8px;
+}
+
+.card-button {
+  position: absolute;
+  bottom: 2px;
+  margin: 5px;
+}
+
+
+
+/* Media queries for responsiveness */
+
+/* Breakpoint at 568px */
+@media (max-width: 568px) {
+  .card {
+      width: 100%;
+      /* Full width for small screens */
+  }
+}
+
+/* Breakpoint at 776px */
+@media (min-width: 569px) and (max-width: 776px) {
+  .card {
+      width: calc(100% / 2 - 16px);
+      /* 2 cards per row */
+  }
+}
+
+/* Breakpoint at 992px */
+@media (min-width: 777px) and (max-width: 992px) {
+  .card {
+      width: calc(100% / 3 - 16px);
+      /* 3 cards per row */
+  }
+}
+
+/* Breakpoint at 1052px */
+@media (min-width: 993px) and (max-width: 1052px) {
+  .card {
+      width: calc(100% / 4 - 16px);
+      /* 4 cards per row */
+  }
+}
+
+/* Large screens (1052px and above) */
+@media (min-width: 1053px) {
+  .card {
+      width: calc(100% / 5 - 16px);
+      /* 5 cards per row */
+  }
+}
