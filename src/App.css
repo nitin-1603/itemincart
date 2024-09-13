@@ -1,103 +1,206 @@
-/* Base styles for the card */
+/* Base Styles */
 .cardBorder {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
 }
 
 .card {
-  position: relative;
-  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  width: calc(100% / 2 - 16px);
-  /* Default to 2 cards per row */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(0.99);
-}
-
-.card-image{
-  width: 10rem;
-  height: 10rem;
-}
-
-/* .card img {
   width: 100%;
-  height: auto;
-} */
+  max-width: 300px; /* Default card width */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
 .card-content {
-  padding: 16px;
-  margin: 1rem 0rem;
+  padding: 15px;
+  text-align: center;
+  transition: ;
 }
 
-.phone-name {
-  font-size: 1.2em;
+.card-title {
+  margin: 0;
+  font-size: 18px;
   font-weight: bold;
 }
 
-.specs {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.specs li {
-  margin-bottom: 8px;
+.card-price, .card-category {
+  margin: 5px 0;
+  font-size: 16px;
 }
 
 .card-button {
-  position: absolute;
-  bottom: 2px;
-  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
+.card-button:hover {
+  background-color: #0056b3;
+}
 
+/* Responsive Breakpoints */
 
-/* Media queries for responsiveness */
+/* Mobile devices (smallest) */
+@media (max-width: 576px) {
+  .cardBorder {
+      padding: 10px;
+      gap: 10px;
+  }
 
-/* Breakpoint at 568px */
-@media (max-width: 568px) {
   .card {
+      max-width: 100%;
+      width: calc(100% - 20px); /* Full width minus padding */
+  }
+
+  .card-image {
+      height: 150px;
+  }
+
+  .card-title {
+      font-size: 16px;
+  }
+
+  .card-price, .card-category {
+      font-size: 14px;
+  }
+
+  .card-button {
       width: 100%;
-      /* Full width for small screens */
+      font-size: 14px;
+      padding: 8px;
   }
 }
 
-/* Breakpoint at 776px */
-@media (min-width: 569px) and (max-width: 776px) {
+/* Small tablets and larger mobile devices */
+@media (min-width: 577px) and (max-width: 776px) {
+  .cardBorder {
+      padding: 15px;
+      gap: 15px;
+  }
+
   .card {
-      width: calc(100% / 2 - 16px);
-      /* 2 cards per row */
+      max-width: 100%;
+  }
+
+  .card-image {
+      height: 180px;
+  }
+
+  .card-title {
+      font-size: 17px;
+  }
+
+  .card-price, .card-category {
+      font-size: 15px;
+  }
+
+  .card-button {
+      width: 100%;
+      font-size: 15px;
+      padding: 10px;
   }
 }
 
-/* Breakpoint at 992px */
-@media (min-width: 777px) and (max-width: 992px) {
+/* Tablets and smaller desktops */
+@media (min-width: 777px) and (max-width: 996px) {
+  .cardBorder {
+      padding: 20px;
+      gap: 20px;
+  }
+
   .card {
-      width: calc(100% / 3 - 16px);
-      /* 3 cards per row */
+      max-width: 300px;
+  }
+
+  .card-image {
+      height: 200px;
+  }
+
+  .card-title {
+      font-size: 18px;
+  }
+
+  .card-price, .card-category {
+      font-size: 16px;
+  }
+
+  .card-button {
+      font-size: 16px;
+      padding: 12px;
+      
   }
 }
 
-/* Breakpoint at 1052px */
-@media (min-width: 993px) and (max-width: 1052px) {
+/* Desktops and larger screens */
+@media (min-width: 997px) and (max-width: 1200px) {
+  .cardBorder {
+      padding: 25px;
+      gap: 25px;
+  }
+
   .card {
-      width: calc(100% / 4 - 16px);
-      /* 4 cards per row */
+      max-width: 300px;
+  }
+
+  .card-image {
+      height: 220px;
+  }
+
+  .card-title {
+      font-size: 19px;
+  }
+
+  .card-price, .card-category {
+      font-size: 17px;
+  }
+
+  .card-button {
+      font-size: 18px;
+      padding: 14px;
   }
 }
 
-/* Large screens (1052px and above) */
-@media (min-width: 1053px) {
+/* Extra large desktops */
+@media (min-width: 1201px) {
+  .cardBorder {
+      padding: 30px;
+      gap: 30px;
+  }
+
   .card {
-      width: calc(100% / 5 - 16px);
-      /* 5 cards per row */
+      max-width: 350px;
+  }
+
+  .card-image {
+      height: 250px;
+  }
+
+  .card-title {
+      font-size: 20px;
+  }
+
+  .card-price, .card-category {
+      font-size: 18px;
+  }
+
+  .card-button {
+      font-size: 20px;
+      padding: 16px;
   }
 }

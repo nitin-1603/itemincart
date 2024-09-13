@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import '../Navbar.css'
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const cartItem = useSelector((state) => state.cart.items)
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -18,8 +20,8 @@ const Navbar = () => {
       </div>
       <div className={`navbar-menu ${isNavOpen ? 'open' : ''}`}>
         <ul className="navbar-links">
-          
-          <li><a href="/cart">Cart</a></li>
+
+          <li><a href="/cart">Cart {cartItem.length === 0 ? '' : cartItem.length}</a></li>
         </ul>
       </div>
     </nav>

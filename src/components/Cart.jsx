@@ -1,16 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { removeProduct } from './redux/cartSlice'
-import '../index.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { removeProduct, incrementQuantity, decrementQuantity } from './redux/cartSlice';
+import '../cart.css';
 
 const Cart = () => {
-    const dispatch = useDispatch()
-    const cartItem = useSelector((state) => state.cart.items)
+    const dispatch = useDispatch();
+    const cartItem = useSelector((state) => state.cart.items);
     
     const handleRemoveItem = (id) => {
-        dispatch(removeProduct(id))
-    }
+        dispatch(removeProduct(id));
+    };
     
-    console.log(cartItem)
+    const handleIncrement = (id) => {
+        dispatch(incrementQuantity(id));
+    };
+
+    const handleDecrement = (id) => {
+        dispatch(decrementQuantity(id));
+    };
+
     return (
         <>
             <div className='cartContainer'>
@@ -25,9 +32,10 @@ const Cart = () => {
                                 <div className="cartItemDetails">
                                     <h3>{item.title}</h3>
                                     <p>Price: ${item.price}</p>
-                                    {/* <p>{value}</p>
-                                    <button onClick={() => dispatch(productIncrement())}>+</button>
-                                    <button onClick={() => dispatch(productDecrement())}>-</button> */}
+                                    <p>ID: {item.id}</p>
+                                    <p>Quantity: {item.quantity}</p>
+                                    <button onClick={() => handleIncrement(item.id)}>+</button>
+                                    <button onClick={() => handleDecrement(item.id)}>-</button>
                                     <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
                                 </div>
                             </li>
@@ -36,7 +44,7 @@ const Cart = () => {
                 )}
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Cart
+export default Cart;
